@@ -1,7 +1,8 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
-import { PageTitle } from '@driogtha/ui-header';
+import { UiHeader } from '@driogtha/ui-header';
+import { UiFooter } from '@driogtha/ui-footer';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,10 +10,11 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to gra!</title>
       </Head>
-      <PageTitle />
+      <UiHeader domain="Grá" />
       <main className="app">
         <Component {...pageProps} />
       </main>
+      <UiFooter />
     </>
   );
 }

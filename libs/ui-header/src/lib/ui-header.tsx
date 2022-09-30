@@ -1,16 +1,25 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 /* eslint-disable-next-line */
-export interface UiHeaderProps {}
+export interface UiHeaderProps {
+  domain: string;
+}
 
 const StyledUiHeader = styled.div`
-  color: pink;
+  background-color: grey;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
 `;
 
 export function UiHeader(props: UiHeaderProps) {
   return (
     <StyledUiHeader>
-      <h1>Welcome to UiHeader!</h1>
+      <Link href="/">Home</Link>
+      <h1>{props.domain}</h1>
     </StyledUiHeader>
   );
 }
