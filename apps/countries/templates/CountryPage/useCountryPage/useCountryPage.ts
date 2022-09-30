@@ -1,11 +1,12 @@
 import { axiosInstance } from 'apps/countries/api/axios';
 
 function useCountryPage() {
-  async function fetchCountryData(code: string) {
+  // TODO: update to use React Query
+  async function fetchCountryData(code: string[]) {
     const { data } = await axiosInstance.get(
-      `https://restcountries.com/v3.1/alpha/${code}`
+      `https://restcountries.com/v3.1/alpha?codes=${code.join(',')}`
     );
-    return data[0];
+    return data;
   }
   return { fetchCountryData };
 }

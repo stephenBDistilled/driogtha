@@ -2,8 +2,8 @@ import { axiosInstance } from 'apps/countries/api/axios';
 
 import { CountryPage } from 'apps/countries/templates/CountryPage/CountryPage';
 
-function Country({ code, countryData }: { code: string; countryData: any }) {
-  return <CountryPage code={code} countryData={countryData} />;
+function Country({ countryData }: { countryData: any }) {
+  return <CountryPage countryData={countryData} />;
 }
 
 export async function getServerSideProps(ctx) {
@@ -19,7 +19,7 @@ export async function getServerSideProps(ctx) {
     console.log(error);
     return { notFound: true };
   }
-  return { props: { code, countryData } };
+  return { props: { countryData } };
 }
 
 export default Country;
