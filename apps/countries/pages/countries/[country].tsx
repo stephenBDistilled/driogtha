@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const axios = require('axios').default;
+import { axiosInstance } from 'apps/countries/api/axios';
 
 function Country({ code, countryData }: { code: string; countryData: any }) {
   return (
@@ -25,9 +25,10 @@ export async function getServerSideProps(ctx) {
   let countryData;
 
   try {
-    const { data } = await axios.get(
+    const { data } = await axiosInstance.get(
       `https://restcountries.com/v3.1/alpha/${code}`
     );
+    console.log(axiosInstance);
     countryData = data;
   } catch (error) {
     console.log(error);
