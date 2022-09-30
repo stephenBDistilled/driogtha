@@ -15,12 +15,12 @@ function Country({ countryData }: { countryData: any }) {
 }
 
 export async function getServerSideProps(ctx) {
-  const code = ctx.params.country;
+  const name = ctx.params.country;
   let countryData;
 
   try {
     const { data } = await axiosInstance.get(
-      `https://restcountries.com/v3.1/alpha/${code}`
+      `https://restcountries.com/v3.1/name/${name}`
     );
     countryData = data;
   } catch (error) {

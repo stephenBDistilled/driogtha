@@ -17,16 +17,14 @@ const Container = styled.div`
 `;
 
 function CountryCard({
-  code,
   name,
   coatOfArms,
 }: {
-  code: string;
   name: string;
   coatOfArms: string;
 }) {
   return (
-    <Link href={`/countries/${code}`}>
+    <Link href={`/countries/${name}`}>
       <Container>
         <img src={coatOfArms} height={100} width={100} />
         <p>{name}</p>

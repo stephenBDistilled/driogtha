@@ -6,7 +6,7 @@ interface ServerSideProps {
 }
 
 export function Index({ data }: ServerSideProps) {
-  return <HomePage countryNames={data} />;
+  return <HomePage countries={data} />;
 }
 
 export async function getServerSideProps() {

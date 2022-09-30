@@ -5,7 +5,6 @@ import { CountryCard } from './organisms/CountryCard';
 
 function CountryPage({ countryData }: { countryData: any }) {
   const { data, isLoading } = useCountryPage(countryData[0].borders.join(','));
-  console.log(countryData);
 
   return (
     <div>
@@ -28,7 +27,6 @@ function CountryPage({ countryData }: { countryData: any }) {
             return (
               <CountryCard
                 key={country.cca3}
-                code={country.cca3}
                 name={country.name?.common}
                 coatOfArms={country.coatOfArms?.png}
               />
