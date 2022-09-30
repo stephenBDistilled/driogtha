@@ -1,36 +1,30 @@
 import * as Styles from './styles';
 import { useCountryPage } from './useCountryPage/useCountryPage';
-import { useState, useEffect } from 'react';
 
 import { CountryCard } from './organisms/CountryCard';
 
 function CountryPage({ countryData }: { countryData: any }) {
-  const { fetchCountryData } = useCountryPage();
-  const [countries, setCountries] = useState<any[]>();
-
-  async function init() {
-    try {
-      const res = await fetchCountryData(countryData[0].borders);
-      setCountries(res);
-    } catch (_error) {}
-  }
-
-  useEffect(() => {
-    init();
-
-    return () => {};
-  }, [countryData]);
+  const { data, isLoading } = useCountryPage(countryData[0].borders.join(','));
+  console.log(countryData);
 
   return (
-    <Styles.Container>
+    <div>
       <button onClick={() => history.back()}>Back</button>
-      <p>{countryData[0].name.common}</p>
-      <p>Capital: {countryData[0].capital}</p>
-      <p>Neighbouring countries: </p>
-      <img src={countryData[0].coatOfArms?.png} height={200} width={200} />
+      <Styles.CountryData>
+        <img src={countryData[0].coatOfArms?.png} height={200} width={200} />
+        <h1>{countryData[0].name.common}</h1>
+        <img src={countryData[0].flags?.png} height={50} />
+        <ul>
+          <li>Capital: {countryData[0].capital}</li>
+          <li>Population: {countryData[0].population}</li>
+          <li>Region: {countryData[0].region}</li>
+        </ul>
+      </Styles.CountryData>
+      <Styles.SectionHeader>Neighbouring countries: </Styles.SectionHeader>
       <Styles.BorderCountries>
-        {countries &&
-          countries?.map((country) => {
+        {data &&
+          !isLoading &&
+          data.map((country) => {
             return (
               <CountryCard
                 key={country.cca3}
@@ -40,8 +34,9 @@ function CountryPage({ countryData }: { countryData: any }) {
               />
             );
           })}
+        {isLoading && 'Loading...'}
       </Styles.BorderCountries>
-    </Styles.Container>
+    </div>
   );
 }
 

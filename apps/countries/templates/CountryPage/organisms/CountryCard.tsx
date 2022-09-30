@@ -8,6 +8,8 @@ const Container = styled.div`
   border: 1px solid grey;
   cursor: pointer;
   text-align: center;
+  padding: 4px;
+  margin: 4px;
 
   &:hover {
     background-color: paleturquoise;

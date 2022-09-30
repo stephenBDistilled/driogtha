@@ -2,8 +2,16 @@ import { axiosInstance } from 'apps/countries/api/axios';
 
 import { CountryPage } from 'apps/countries/templates/CountryPage/CountryPage';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+
 function Country({ countryData }: { countryData: any }) {
-  return <CountryPage countryData={countryData} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <CountryPage countryData={countryData} />
+    </QueryClientProvider>
+  );
 }
 
 export async function getServerSideProps(ctx) {
