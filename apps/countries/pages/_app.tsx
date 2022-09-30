@@ -1,15 +1,13 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
-import { PageTitle } from '@driogtha/ui-header';
-
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to countries!</title>
+        <title>Countries</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <PageTitle />
       <main className="app">
         <Component {...pageProps} />
       </main>
