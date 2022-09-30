@@ -10,6 +10,7 @@ const StyledUiFooter = styled.div`
   justify-content: center;
   align-items: center;
   height: 200px;
+  padding: 8px;
 `;
 
 export function UiFooter(props: UiFooterProps) {

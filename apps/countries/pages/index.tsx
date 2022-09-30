@@ -1,18 +1,11 @@
-import Link from 'next/link';
+import { HomePage } from 'apps/countries/templates/HomePage/HomePage';
 
 interface ServerSideProps {
   data: any;
 }
 
 export function Index({ data }: ServerSideProps) {
-  return (
-    <div>
-      <Link href="/search">Search here</Link>
-      <div>
-        <Link href="http://localhost:4200/">Find love</Link>
-      </div>
-    </div>
-  );
+  return <HomePage />;
 }
 
 export async function getServerSideProps() {

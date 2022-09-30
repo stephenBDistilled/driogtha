@@ -1,23 +1,9 @@
-import Link from 'next/link';
-
 import { axiosInstance } from 'apps/countries/api/axios';
 
+import { CountryPage } from 'apps/countries/templates/CountryPage/CountryPage';
+
 function Country({ code, countryData }: { code: string; countryData: any }) {
-  return (
-    <>
-      <button onClick={() => history.back()}>Back</button>
-      <div>{code}</div>
-      <div>Capital: {countryData[0].capital}</div>
-      <div>
-        Neighbouring countries{' '}
-        {countryData[0].borders.map((border) => (
-          <p>
-            <Link href={`/countries/${border}`}>{border}</Link>
-          </p>
-        ))}
-      </div>
-    </>
-  );
+  return <CountryPage code={code} countryData={countryData} />;
 }
 
 export async function getServerSideProps(ctx) {

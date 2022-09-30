@@ -13,6 +13,7 @@ const StyledUiHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100px;
+  padding: 8px;
 `;
 
 export function UiHeader(props: UiHeaderProps) {
