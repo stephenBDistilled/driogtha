@@ -22,7 +22,6 @@ function Country({ code, countryData }: { code: string; countryData: any }) {
 
 export async function getServerSideProps(ctx) {
   const code = ctx.params.country;
-  console.log(code);
   let countryData;
 
   try {
