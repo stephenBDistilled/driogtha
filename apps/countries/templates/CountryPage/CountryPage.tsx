@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import * as Styles from './styles';
 
-// import {} from '@driogtha/util-formatters';
+import { CountryCard } from './organisms/CountryCard';
 
 function CountryPage({
   code,
@@ -13,16 +12,14 @@ function CountryPage({
   return (
     <Styles.Container>
       <button onClick={() => history.back()}>Back</button>
-      <div>{code}</div>
+      <div>{countryData[0].name.common}</div>
       <div>Capital: {countryData[0].capital}</div>
-      <div>
-        Neighbouring countries{' '}
-        {countryData[0].borders.map((border) => (
-          <p>
-            <Link href={`/countries/${border}`}>{border}</Link>
-          </p>
+      <p>Neighbouring countries: </p>
+      <Styles.BorderCountries>
+        {countryData[0].borders.map((border, index) => (
+          <CountryCard key={index} code={border} />
         ))}
-      </div>
+      </Styles.BorderCountries>
     </Styles.Container>
   );
 }
