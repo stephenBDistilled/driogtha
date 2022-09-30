@@ -31,6 +31,7 @@ export async function getServerSideProps(ctx) {
     countryData = data;
   } catch (error) {
     console.log(error);
+    return { notFound: true };
   }
   return { props: { code, countryData } };
 }

@@ -18,8 +18,7 @@ const StyledUiHeader = styled.div`
 export function UiHeader(props: UiHeaderProps) {
   return (
     <StyledUiHeader>
-      <Link href="/">Home</Link>
-      <h1>{props.domain}</h1>
+      <Link href="/">{props.domain}</Link>
     </StyledUiHeader>
   );
 }

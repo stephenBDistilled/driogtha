@@ -7,7 +7,6 @@ interface ServerSideProps {
 export function Index({ data }: ServerSideProps) {
   return (
     <div>
-      <h1>Countries</h1>
       <Link href="/search">Search here</Link>
       <div>
         <Link href="http://localhost:4200/">Find love</Link>
