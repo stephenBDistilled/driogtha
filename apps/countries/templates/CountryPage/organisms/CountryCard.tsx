@@ -1,14 +1,11 @@
 import Link from 'next/link'; // Pass as prop?
 import styled from 'styled-components';
 
-const Container = styled.div`
-  border-radius: 4px;
-  height: 200px;
-  width: 200px;
-  border: 1px solid grey;
+import { UiBox } from '@driogtha/ui-box';
+
+const Container = styled(UiBox)`
   cursor: pointer;
   text-align: center;
-  padding: 4px;
   margin: 4px;
 
   &:hover {

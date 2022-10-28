@@ -5,7 +5,10 @@ import { useCountryPage } from './useCountryPage/useCountryPage';
 import { CountryCard } from './organisms/CountryCard';
 
 function CountryPage({ countryData }: { countryData: any }) {
-  const { data, isLoading } = useCountryPage(countryData[0].borders.join(','));
+  const CD = countryData[0].borders
+    ? countryData[0].borders.join(',')
+    : undefined;
+  const { data, isLoading } = useCountryPage(CD);
   const router = useRouter();
 
   return (
@@ -21,21 +24,26 @@ function CountryPage({ countryData }: { countryData: any }) {
           <li>Region: {countryData[0].region}</li>
         </ul>
       </Styles.CountryData>
-      <Styles.SectionHeader>Neighbouring countries: </Styles.SectionHeader>
-      <Styles.BorderCountries>
-        {data &&
-          !isLoading &&
-          data.map((country) => {
-            return (
-              <CountryCard
-                key={country.cca3}
-                name={country.name?.common}
-                coatOfArms={country.coatOfArms?.png}
-              />
-            );
-          })}
-        {isLoading && 'Loading...'}
-      </Styles.BorderCountries>
+
+      {data || isLoading ? (
+        <>
+          <Styles.SectionHeader>Neighbouring countries: </Styles.SectionHeader>
+          <Styles.BorderCountries>
+            {data &&
+              !isLoading &&
+              data.map((country) => {
+                return (
+                  <CountryCard
+                    key={country.cca3}
+                    name={country.name?.common}
+                    coatOfArms={country.coatOfArms?.png}
+                  />
+                );
+              })}
+            {isLoading && 'Loading...'}
+          </Styles.BorderCountries>
+        </>
+      ) : undefined}
     </div>
   );
 }
