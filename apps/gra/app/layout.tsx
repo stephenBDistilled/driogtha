@@ -1,5 +1,4 @@
-import { UiHeader } from '@driogtha/ui-header';
-import { UiFooter } from '@driogtha/ui-footer';
+import './styles/styles.css';
 
 export default function RootLayout({ children }) {
   return (
@@ -9,7 +8,14 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </head>
       <body>
-        <div>{children}</div>
+        <div>
+          <span>Header</span>
+        </div>
+        <div className="container">
+          <div className="subContainer">
+            <div>{children}</div>
+          </div>
+        </div>
         <div>
           <span>Footer</span>
         </div>

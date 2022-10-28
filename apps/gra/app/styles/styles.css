@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 75rem;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.subContainer {
+  flex: 0 0 100%;
+  max-width: 100%;
+}

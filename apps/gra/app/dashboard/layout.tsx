@@ -1,4 +1,17 @@
-import Link from 'next/link';
+'use client';
+
+import { Menu } from './Menu';
+
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+
+  @media screen and (min-width: 64em) {
+    grid-template-columns: 300 1fr;
+    gap: 1.5rem /* 24px */;
+  }
+`;
 
 export default function DashboardLayout({
   children,
@@ -6,17 +19,9 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
-      <div>
-        <Link href="/dashboard/myprofile">My Profile</Link>
-      </div>
-      <div>
-        <Link href="/dashboard/saves">Saves</Link>
-      </div>
-      <div>
-        <Link href="/dashboard/settings">Settings</Link>
-      </div>
+    <Container>
+      <Menu />
       {children}
-    </section>
+    </Container>
   );
 }

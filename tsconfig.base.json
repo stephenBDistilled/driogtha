@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@driogtha/ui-box": ["libs/ui-box/src/index.ts"],
       "@driogtha/ui-footer": ["libs/ui-footer/src/index.ts"],
       "@driogtha/ui-header": ["libs/ui-header/src/index.ts"],
       "@driogtha/util-formatters": ["libs/util-formatters/src/index.ts"]
